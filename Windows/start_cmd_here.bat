@@ -1,0 +1,1 @@
+cmder /START %CD%

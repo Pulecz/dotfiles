@@ -1,0 +1,1 @@
+bash --init-file ssh_agent.sh
