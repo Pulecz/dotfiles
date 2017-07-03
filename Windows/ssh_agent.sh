@@ -1,1 +1,2 @@
-eval $(ssh-agent);ssh-add /c/Users/pulec/.ssh/github
+KEYNAME=github
+eval $(ssh-agent);ssh-add /c/Users/${USERNAME}/.ssh/${KEYNAME}
