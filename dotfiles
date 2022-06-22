@@ -1,0 +1,43 @@
+#/bin/bash
+#$1 doesn't work in aliases
+alias ll='ls -alh'
+alias qfind='find . -iname'
+alias gn='sleep 5m && systemctl suspend && exit'
+alias mpvp='mpv "$(cat)'
+alias youtp='youtube-dl -i $(cat)'
+alias lbf='du . -d 1 -h | sort -k 1 -h'
+alias agentsmith='eval $(ssh-agent)'
+alias key_home='ssh-add ~/.ssh/github'
+alias kal='cal -myw'
+alias winetcmd='WINEPREFIX=/smb_shares/bignas/sdf1_toshiba_sas_ext4/gog_wines/tcmd_wine/ wine /smb_shares/bignas/sdf1_toshiba_sas_ext4/gog_wines/tcmd_wine/drive_c/totalcmd/TOTALCMD64.EXE'
+alias winetcmd_proton='WINEPREFIX=/smb_shares/bignas/sdf1_toshiba_sas_ext4/gog_wines/tcmd_wine/ ~/.local/share/lutris/runners/wine/wine-6.3-8-proton-amd64/bin/wine  /smb_shares/bignas/sdf1_toshiba_sas_ext4/gog_wines/tcmd_wine/drive_c/totalcmd/TOTALCMD64.EXE'
+alias aur_info='aur search -i'  
+
+# portable things
+alias lnp='/home/pulec/.dwarffortress/lnp/startlnp'
+
+alias upfile='if [ -z ${file+x} ]; then echo "var file is unset"; else echo "var file is set to $file"; ll $file; fi;curl -F'file=@'$file'' https://0x0.st'
+alias lib265fy='if [ -z ${ext+x} ]; then echo "var ext is unset, set it to e.g ext=.mp4"; else echo "var is set to '$ext'"; fi;for file in *$ext; do fileo=$(echo $file | sed 's/'$ext'//');ffmpeg -i $file -c:v libx265 -c:a mp3 $fileo.mp4; done'
+#override huh
+alias vim=nvim
+alias gimp=gimp-2.99
+
+#reminders
+alias reminder_os_software='echo """
+twitter cli = turses
+rss = newsboati
+trickle = network limiter
+sqriptor = emergency backup gui editor, meh
+usbimager or balena etcher for usb images thingies
+------
+to try or setup:
+polybar
+python-rtmidi
+"""
+'
+alias reminder_ffmpeg='echo """
+#*.mkv through hevc_vaapi 27 quality (18 is considered very good, but big, 26- still good)
+for file in *.mkv; do ffmpeg -i $file -vaapi_device /dev/dri/by-path/pci-0000:09:00.0-render -vf 'format=nv12,hwupload' -c:v hevc_vaapi -qp 27 "$file"_.mkv; done
+"""'
+alias reminder_install_core_stuf='echo """
+kernel-modules-hook - Keeps your system fully functional after a kernel upgrade """'
